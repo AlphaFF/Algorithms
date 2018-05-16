@@ -204,3 +204,24 @@ class BinHeap:
 		self.currentSize = 0
 
 
+# return the average value of the nodes on each level in the form of an array
+def averageOfLevels(self, root):
+    """
+    :type root: TreeNode
+    :rtype: List[float]
+    """
+    prev, res = [root], []
+    while prev:
+        curr = []
+        val = sum([node.val for node in prev]) / len(prev)
+        res.append(val)
+        while prev:
+            node = prev.pop()
+            if node.left:
+                curr.append(node.left)
+            if node.right:
+                curr.append(node.right)
+        prev = curr
+    return res
+
+
