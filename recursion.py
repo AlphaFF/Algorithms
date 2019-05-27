@@ -273,7 +273,7 @@ def quick_sort2(alist):
         for x in array:
             if x < pivot:
                 less.append(x)
-            elif x ==pivot:
+            elif x == pivot:
                 equal.append(x)
             else:
                 greater.append(x)
@@ -292,3 +292,29 @@ def quicksort3(alist):
 
 
 print(quicksort3(alist))
+
+
+def select_sort1(alist):
+    position = len(alist)
+    while position > 0:
+        current_value = alist[0]
+        for i in range(1, position):
+            if alist[i] > current_value:
+                current_value = alist[i]
+        alist[position - 1] = current_value
+        position -= 1
+    return alist
+
+
+def select_sort2(alist):
+    for p in range(len(alist) - 1, 0, -1):
+        max_index = 0
+        for i in range(p):
+            if alist[i + 1] >= alist[i]:
+                max_index = i + 1
+        alist[p], alist[max_index] = alist[max_index], alist[p]
+    return alist
+
+
+print(select_sort1(alist))
+print(select_sort2(alist))

@@ -21,6 +21,7 @@ def isPalindrome(x):
 
     return True
 
+
 def isPalindrome1(x):
     """
     :type x: int
@@ -36,6 +37,29 @@ def isPalindrome1(x):
     return x == reverse
 
 
-if __name__ == '__main__':
-    # print(isPalindrome(1331))
-    print(isPalindrome1(123))
+def is_palindrome(x):
+    if x < 0:
+        return False
+    return str(x)[::-1] == str(x)
+
+
+def is_palindrome1(x):
+    if x < 0:
+        return False
+    reverse = 0
+    tmp = x
+    while tmp > 0:
+        reverse += tmp % 10
+        tmp = tmp // 10
+        if not tmp:
+            break
+        reverse *= 10
+    return reverse == x
+
+
+print(is_palindrome1(1001))
+
+
+# if __name__ == '__main__':
+#     # print(isPalindrome(1331))
+#     print(isPalindrome1(123))
